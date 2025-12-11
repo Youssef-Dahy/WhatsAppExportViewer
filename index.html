@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>WhatsApp Export Viewer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
+    />
+    <link rel="stylesheet" href="assets/css/whatsapp.css" />
+    <link
+      rel="icon"
+      href="assets/images/Whatsapp_icon-icons.com_66931.ico"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div>
+          <h1>عرض محادثة واتساب من ملف التصدير</h1>
+          <div class="small">
+            ارفع ملف .txt أو ملف مضغوط ZIP (يحتوي على txt و/أو مجلد Media)
+          </div>
+        </div>
+
+        <div class="controls">
+          <input id="fileInput" type="file" accept=".zip,.txt" />
+          <button id="downloadJson" class="btn secondary">تصدير JSON</button>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="searchbar">
+          <input id="searchInput" type="search" placeholder="اكتب كلمة للبحث" />
+          <button id="clearSearch" class="btn secondary">مسح</button>
+          <button id="toggleLang" class="btn secondary">English</button>
+        </div>
+
+        <div id="error" class="error" style="display: none"></div>
+
+        <div id="chat" class="chat">
+          <div class="small" id="placeholder">
+            لا توجد رسائل — ارفع ملف التصدير لعرض المحادثة.
+          </div>
+        </div>
+
+        <div class="footer">
+          ملاحظة: هذا عرض تجريبي. إذا لم تتعرف الصيغة على ملفك، انسخ أول 10 أسطر
+          من ملف .txt هنا وسأعدّل المحلل ليتعامل معه.
+        </div>
+      </section>
+    </div>
+
+    <!-- Lightbox لتكبير الصور -->
+    <div id="lightbox" class="lightbox">
+      <button class="lightbox-close" id="lightboxClose">×</button>
+      <div class="lightbox-nav">
+        <button class="lightbox-prev" id="lightboxPrev">‹</button>
+        <button class="lightbox-next" id="lightboxNext">›</button>
+      </div>
+      <div class="lightbox-counter" id="lightboxCounter"></div>
+      <img class="lightbox-img" id="lightboxImg" />
+      <div class="lightbox-info" id="lightboxInfo"></div>
+    </div>
+
+    <!-- Libraries: JSZip و dayjs -->
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/dayjs.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
