@@ -497,3 +497,7 @@ audio.media {
 .media-file:hover {
   background: #e0e0e0;
 }
+.btn-hover {
+  background-color: transparent !important;
+  color: #6c757d !important;
+}
